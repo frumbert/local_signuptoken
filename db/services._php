@@ -1,0 +1,57 @@
+<?php
+
+$functions = array(
+	'local_signuptoken_generatetokens' => array(
+		'classname'		=> 'local_signuptoken_external',
+		'methodname'	=> 'generatetokens',
+		'classpath'		=> 'local/signuptoken/externallib.php',
+		'description'	=> 'Generate one or more enrolment tokens for a course',
+		'type'	 		=> 'read',
+	),
+	'local_signuptoken_validate' => array(
+		'classname'		=> 'local_signuptoken_external',
+		'methodname'	=> 'validatetoken',
+		'classpath'		=> 'local/signuptoken/externallib.php',
+		'description'	=> 'Validate a token for the existing user context',
+		'type'	 		=> 'read',
+	),
+	'local_signuptoken_enrol' => array(
+		'classname'		=> 'local_signuptoken_external',
+		'methodname' 	=> 'apply',
+		'classpath'		=> 'local/signuptoken/externallib.php',
+		'description'	=> 'Apply a token for the current user context',
+		'type'	 		=> 'read',
+	),
+	'local_signuptoken_usertoken' => array(
+		'classname'		=> 'local_signuptoken_external',
+		'methodname' 	=> 'usertoken',
+		'classpath'		=> 'local/signuptoken/externallib.php',
+		'description'	=> 'Generate a usertoken given a userid (requires admin)',
+		'type'	 		=> 'write',
+	),
+);
+
+// We define the services to install as pre-build services. A pre-build service is not editable by administrator.
+
+$services = array(
+	'Generate one or more enrolment tokens for a course' => array(
+		'functions'			=> array ('local_signuptoken_generatetokens'),
+		'restrictedusers'   => 0,
+		'enabled'	  		=> 1,
+	),
+	'Validate a token' => array(
+		'functions'			=> array ('local_signuptoken_validate'),
+		'restrictedusers'   => 1,
+		'enabled'	  		=> 1,
+	),
+	'Apply a token' => array(
+		'functions'			=> array ('local_signuptoken_apply'),
+		'restrictedusers'   => 1,
+		'enabled'	  		=> 1,
+	),
+	'Generate a usertoken' => array(
+		'functions'			=> array ('local_signuptoken_usertoken'),
+		'restrictedusers'   => 1,
+		'enabled'	  		=> 1,
+	),
+);

@@ -2,13 +2,15 @@
 
 ## Info
 
-This plugin adds a token field to the signup.
+This plugin adds a token field to the Email-Based self-registration page.
+
+It also adds a set of web services for creating, validating and enrolling a user with a token.
 
 ## Requirements
 
-You need to be using auth/email (Email-Based self-registration)
-You need https://github.com/frumbert/enrol-token to be installed
-You need https://github.com/frumbert/customscript-signuptoken to be configured and installed
+ * You need to be using auth/email (Email-Based self-registration)
+ * You need https://github.com/frumbert/enrol-token to be installed
+ * You need https://github.com/frumbert/customscript-signuptoken to be configured and installed
 
 ## Setup
 

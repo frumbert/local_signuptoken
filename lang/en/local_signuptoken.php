@@ -19,3 +19,37 @@ $string['token'] = 'Token (optional)';
 $string['token_help'] = 'If you have been sent an enrolment token code, enter it here';
 $string['invalidtoken'] = 'Token is not found or is invalid';
 $string['tokenexpired'] = 'Token has expired';
+
+
+$string['empty_userid_err'] = 'Please select the user.';
+$string['create_service_shortname_err'] = 'Unable to create the webservice please contact plugin owner.';
+$string['create_service_name_err'] = 'This name is already in use please use different name.';
+$string['create_service_creation_err'] = 'Unable to create the webservice please contact plugin owner.';
+
+$string['click_here'] = 'Click here';
+$string['st_settings_msg'] = 'Open plugin setup';
+
+$string['st-setting-page-title'] = 'Plugin setup';
+
+$string['existing_serice_lbl'] = 'Select web service';
+$string['new_web_new_service'] = 'Create new web service';
+$string['new_serivce_user_lbl'] = 'Select user';
+$string['nav_name'] = "Setup";
+
+$string['st_mform_service_desc'] = 'Service desc';
+$string['st_mform_service_desc_help'] = 'Web-service functions will get added into it automatically. If this is the first time setting up the plugin create and name a new service';
+$string['new_service_inp_lbl'] = 'Web Service Name';
+$string['token_dropdown_lbl'] = 'Select Token';
+$string['token'] = 'Token ';
+$string['copy'] = 'Copy';
+$string['copied'] = 'Copied !!!';
+$string['create'] = 'Create Web Service';
+$string['link'] = 'Update Web Service';
+
+$string['st_mform_token_desc'] = 'Token';
+$string['st_mform_token_desc_help'] = 'This is your last created token used in site integration.';
+
+$string['st_empty_name_err'] = 'Please enter valid service name.';
+$string['st_empty_user_err'] = 'Please select user.';
+
+$string['st_link_success'] = 'Linked sucessfully';

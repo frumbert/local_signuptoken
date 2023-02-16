@@ -16,7 +16,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2022022200; // Plugin version.
+$plugin->version = 2023021601; // Plugin version.
 $plugin->requires = 2019111200; // Moodle version.
 $plugin->component = 'local_signuptoken'; // Full name of the plugin (used for diagnostics).
 $plugin->dependencies = array('enrol_token' => 2020042101);
