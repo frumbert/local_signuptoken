@@ -165,6 +165,9 @@ define(["jquery", "core/ajax", "core/url"], function($, ajax, url) {
                                         response.token,
                                         response.service_id
                                     );
+
+                                    setTimeout(function() { location.reload(), 2500 });
+
                                 } else {
                                     $("#eb_common_err").css("display", "block");
                                     $(common_errr_fld).text(response.msg);
