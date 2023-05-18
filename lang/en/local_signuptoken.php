@@ -53,3 +53,5 @@ $string['st_empty_name_err'] = 'Please enter valid service name.';
 $string['st_empty_user_err'] = 'Please select user.';
 
 $string['st_link_success'] = 'Linked sucessfully';
+
+$string['apply_token_error'] = 'Token enrolment failed.';
