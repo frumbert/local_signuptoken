@@ -29,15 +29,14 @@ defined('MOODLE_INTERNAL') || die();
 use external_function_parameters;
 use external_single_structure;
 use external_value;
-use external_warnings;
 use enrol_token_plugin;
 
 trait st_validate_token {
 
     public static function st_validate_token_parameters() {
-		return new external_function_parameters(
-			[
-				"token" => new external_value(PARAM_TEXT, "The token value to validate"),
+        return new external_function_parameters(
+            [
+                "token" => new external_value(PARAM_TEXT, "The token value to validate"),
             ]
         );
     }
@@ -45,26 +44,17 @@ trait st_validate_token {
     public static function st_validate_token_returns() {
         return new external_single_structure(
             [
-                'validated' => new external_value(PARAM_BOOL, 'Whether the key is validated or not.'),
-                'warnings' => new external_warnings(),
+                'valid' => new external_value(PARAM_BOOL, 'Whether the key is validated or not.'),
+                'message' => new external_value(PARAM_TEXT, 'Validator feedback message.'),
             ]
         );
-	}
+    }
     
-	public static function st_validate_token($tokenValue) {
-
+    public static function st_validate_token($tokenValue) {
         $message = enrol_token_plugin::getTokenValidationErrors($tokenValue);
-
-        if (empty($message)) {
-            return [
-                'validated' => true,
-                'warnings' => null            
-            ];
-        } else {
-            return [
-                'validated' => false,
-                'warnings' => new external_warnings($tokenValue, 'Token Value', $message)
-            ];
-        }
+        return [
+            'valid' => empty($message),
+            'message' => $message
+        ];
     }
 }

@@ -34,9 +34,10 @@ use external_warnings;
 trait st_apply_token {
 
     public static function st_apply_token_parameters() {
-		return new external_function_parameters(
-			array(
-				"token" => new external_value(PARAM_TEXT, "The token value to apply"),
+        return new external_function_parameters(
+            array(
+                "userid" => new external_value(PARAM_INT, "The user to apply the token to"),
+                "token" => new external_value(PARAM_TEXT, "The token value to apply"),
             )
         );
     }
@@ -45,24 +46,25 @@ trait st_apply_token {
         return new external_single_structure(
             [
                 'applied' => new external_value(PARAM_BOOL, 'Whether the token was applied or not.'),
-                'warnings' => new external_warnings(),
+                'warnings' => new external_value(PARAM_TEXT, 'Validator error message .'), // new external_warnings(),
             ]
         );
-	}
+    }
     
-	public static function st_apply_token($tokenValue) {
-    global $USER;
+    public static function st_apply_token($userid, $tokenValue) {
+    global $DB, $CFG;
+        $user = $DB->get_record('user', ['id'=>$userid]);
         require_once($CFG->dirroot.'/enrol/token/lib.php');
         $etp = new \enrol_token_plugin();
-        if ($etp->perform_trusted_enrolment($tokenValue, $USER)) {
+        if ($etp->perform_trusted_enrolment($tokenValue, $user)) {
             return [
                 'applied' => true,
-                'warnings' => null            
+                'warnings' => ''
             ];
         } else {
             return [
                 'applied' => false,
-                'warnings' => new external_warnings('Token Value', $tokenValue)
+                'warnings' => get_string('apply_token_error', 'local_signuptoken') // new external_warnings('Token Value', $tokenValue)
             ];
         }
     }
