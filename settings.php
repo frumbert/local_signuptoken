@@ -26,7 +26,18 @@ defined('MOODLE_INTERNAL') || die();
 require_once(dirname(__FILE__) . '/lib.php');
 
 $ADMIN->add(
-    'localplugins',
+    'modules',
+    new admin_category(
+        'signuptokengroup',
+        new lang_string(
+            'pluginname',
+            'local_signuptoken'
+        )
+    )
+);
+
+$ADMIN->add(
+    'signuptokengroup', // 'localplugins',
     new admin_externalpage(
         'signuptoken_setup',
         new lang_string(
